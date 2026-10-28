@@ -1,0 +1,133 @@
+/* ========== VARIABILI ========== */
+:root {
+    /* colori funzionali (lezione 2) */
+    --colore-testo: #111111;
+    --colore-primo-piano: #2B3BD9;
+    --colore-in-evidenza: #EAEAE6;
+    --testo-tenue: #252525;
+
+    /* scaladi spaziatura */
+    --larghezza-colonna: 640px;
+    --spazio-s: 0.5rem;
+    --spazio-m: 1rem;
+    --spazio-l: 2rem;
+    --spazio-xl: 4rem;
+}
+
+/* ========== RESET E BASE ========== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 48px;
+    font-family: "Alegreya", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--colore-testo);
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+/* il limite di caratteri per riga vale solo per i testi */
+h1, h2, h3, h4, h5, h6, p {
+    max-width: 62ch;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ========== HEADER ========== */
+header {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--testo-tenue);
+}
+
+/*======= HERO ========*/
+.hero{
+    padding: 24px;
+    border-bottom: 1px solid var(--testo-tenue);
+}
+
+/* ========== LAYOUT SLIDE ========== */
+.slide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--spazio-xl) 0;
+    display: grid;
+    grid-template-columns: minmax(0, 52ch) 1fr;
+    column-gap: var(--spazio-xl);
+    align-items: start;
+    border-bottom: 1px solid var(--testo-tenue);
+}
+
+.slide > * {
+    grid-column: 1;
+}
+
+
+.slide > img {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+}
+
+.testo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spazio-m);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+    .slide {
+        grid-template-columns: 1fr;   /* uno sotto l'altro */
+    }
+}
+
+/*TESTI SLIDE*/
+
+.testo-1,
+.testo-2,
+.testo-3 {
+    padding: var(--spazio-s);
+    border-radius: 24px;
+}
+
+.testo-1{
+    background-color: #A9CA7F;
+}
+
+.testo-2{
+    background-color: #7F8E9F;
+}
+
+.testo-3{
+    background-color: #E26B77;
+}
+
+/* ========== SLIDE 2 ========== */
+@media (min-width: 600px) {
+    .slide.immagine-sinistra {
+        grid-template-columns: 1fr minmax(0, 52ch);   /* immagine | testo */
+    }
+
+    .slide.immagine-sinistra > img {
+        order: -1;   /* l'immagine passa prima del testo */
+    }
+}
+
+footer{
+    margin: auto;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #dfdfdf;
+}
